@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package the.game;
 
 import java.awt.*;
@@ -33,6 +29,7 @@ public class TheGame {
     private int[][][] baseStats;
     private double[] multiplier;
     private int[][][] uniques;
+    private double[][] characterStatMultipliers;
     //U.Q Declare your unique here, as a 2d int array
     private int[][] andeicslostmedallion;
 
@@ -42,6 +39,7 @@ public class TheGame {
         resists = new String[]{"Resist Crush", "Resist Stab", "Resist Slash", "Resist Pierce", "Resist Magic"};
         armorType = new String[]{"gloves", "boots", "chest", "helm", "ring", "earings", "neck", "shield", "book", "pants"};
         multiplier = new double[]{2, 2, 3, 2.3, 1.2, 1.2, 1.4, 1.8, 1.8, 2.6};
+        characterStatMultipliers = new double[][]{/*warrior*/{/*str*/2.05, /*int*/1, /*vit*/2.3, /*dex*/1.28, /*wis*/1.4}, /*ranger*/{/*str*/1.5, /*int*/1, /*vit*/1.39, /*dex*/2.23, /*wis*/1.44}, /*mage*/{/*str*/1, /*int*/2.45, /*vit*/1.5, /*dex*/0.8, /*wis*/1.9} };
         baseStats = new int[][][]{ /*
              * str
              */{{1, 5}, {3, 9}, {6, 19}, {12, 30}, {21, 44}, {33, 59}, {49, 76}, {61, 93}, {77, 112}, {95, 132}, {113, 152}},/*
@@ -56,9 +54,9 @@ public class TheGame {
              * resists
              */ {{1, 4}, {2, 6}, {3, 10}, {5, 15}, {8, 21}, {12, 27}, {16, 34}, {20, 41}, {24, 49}, {29, 56}, {34, 63}}, /*
              * resist all
-             */ {{0, 1}, {1, 2}, {1, 3}, {2, 5}, {3, 7}, {4, 9}, {5, 11}, {7, 14}, {8, 16}, {10, 19}, {11, 21}}, /*
+             */ {{1, 1}, {1, 2}, {1, 3}, {2, 5}, {3, 7}, {4, 9}, {5, 11}, {7, 14}, {8, 16}, {10, 19}, {11, 21}}, /*
              * all stats
-             */ {{0, 1}, {1, 2}, {1, 4}, {2, 6}, {4, 9}, {7, 12}, {9, 15}, {12, 19}, {15, 22}, {19, 26}, {23, 30}}, /*
+             */ {{1, 1}, {1, 2}, {1, 4}, {2, 6}, {4, 9}, {7, 12}, {9, 15}, {12, 19}, {15, 22}, {19, 26}, {23, 30}}, /*
              * crit
              */ {{1, 2}, {1, 4}, {3, 6}, {5, 8}, {7, 10}, {9, 12}, {11, 14}, {13, 16}, {15, 18}, {17, 20}, {19, 22}}, /*
              * damage rating
@@ -79,11 +77,11 @@ public class TheGame {
         //U.Q Add the initialization here with stats it will always roll
         andeicslostmedallion = new int[][]{ /*
              * dex
-             */{174, 231}, /*
+             */{193, 231}, /*
              * crit
-             */ {27, 36}, /*
+             */ {30, 36}, /*
              * damage rating
-             */ {43, 55}};
+             */ {47, 55}};
 
         uniques = new int[][][]{andeicslostmedallion}; //U.Q Add the crated array into this one
 
@@ -169,10 +167,10 @@ public class TheGame {
             flag[i] = 0;
         }
 
-        randomInt = randomGenerator.nextInt(500);
+        randomInt = randomGenerator.nextInt(400);
 
         //Unique Items
-        if (randomInt == 0) {
+        if (randomInt == 0 && lvlList.getSelectedIndex() == 10) {
             item = new String[6];
             stats = new int[6];
             slots = 6;
