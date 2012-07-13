@@ -6,6 +6,7 @@ package the.game;
  * @author Alex Craig
  * 
  */
+
 public class Mage extends BaseCharacter {
     
     public Mage(double sMult[]) {

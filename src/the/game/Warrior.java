@@ -6,6 +6,7 @@ package the.game;
  * @author Alex Craig
  * 
  */
+
 public class Warrior extends BaseCharacter {
     
     public Warrior(double sMult[]) {

@@ -6,6 +6,7 @@ package the.game;
  * @author Alex Craig
  * 
  */
+
 public class Ranger extends BaseCharacter {
     
     public Ranger(double sMult[]) {

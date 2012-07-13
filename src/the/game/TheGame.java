@@ -13,6 +13,7 @@ import java.math.BigDecimal;
  *
  * To make a unique item, first find a sprite in Unused_Sprites and copy it to Used_Sprites, then follow the comments with this symbol: U.Q
  */
+
 public class TheGame {
 
     private JFrame frame;
